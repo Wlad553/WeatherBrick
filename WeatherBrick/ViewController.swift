@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var infoView: InfoView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var locationIconImageView: UIImageView!
+    @IBOutlet weak var searchIconImageView: UIImageView!
     
     var networkWeatherManager = NetworkWeatherManager()
     
@@ -34,6 +35,8 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpInfoButtonDesign()
+        setUpElementsInitialState()
+        
         gestureRecognizer.addTarget(self, action: #selector(gestureAction(sender:)))
         gestureRecognizer.delegate = self
         scrollView.addGestureRecognizer(gestureRecognizer)
@@ -46,6 +49,15 @@ final class ViewController: UIViewController {
             updateInterface(with: weather)
         }
         
+        networkWeatherManager.dataFetchingFailed = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75 ) {
+                UIView.animate(withDuration: 0.15, delay: 1) {
+                    self.locationIconImageView.alpha = 0
+                }
+                self.setUpElementsInitialState()
+            }
+        }
         requestLocation()
     }
     
@@ -81,7 +93,28 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func requestLocation() {
+    func updateInterface(with weather: WeatherParsedData) {
+        DispatchQueue.main.async {
+            self.brickImageView.isHidden = false
+            self.cityLabel.text = "\(weather.city),"
+            self.temperatureLabel.text = weather.temperatureString
+            self.countryLabel.text = NSLocalizedString(weather.country, comment: "country")
+            self.weatherConditionLabel.text = weather.weatherConditionString
+            self.brickImageView.image = weather.brickImage
+            self.searchIconImageView.isHidden = false
+            UIView.animate(withDuration: 0.15, delay: 1) {
+                self.locationIconImageView.alpha = 0
+            }
+            
+            if 701...762 ~= weather.conditionCode {
+                self.brickImageView.alpha = 0.4
+            } else {
+                self.brickImageView.alpha = 1
+            }
+        }
+    }
+    
+    func requestLocation() {
         DispatchQueue.global().async {
             if CLLocationManager.locationServicesEnabled() {
                 self.locationManager.requestLocation()
@@ -91,20 +124,13 @@ final class ViewController: UIViewController {
         }
     }
     
-    func updateInterface(with weather: WeatherParsedData) {
-        DispatchQueue.main.async {
-            self.cityLabel.text = weather.city
-            self.temperatureLabel.text = weather.temperatureString
-            self.countryLabel.text = weather.country
-            self.weatherConditionLabel.text = weather.weatherConditionString
-            self.brickImageView.image = weather.brickImage
-            
-            if 701...762 ~= weather.conditionCode {
-                self.brickImageView.alpha = 0.4
-            } else {
-                self.brickImageView.alpha = 1
-            }
-        }
+    private func setUpElementsInitialState() {
+        self.brickImageView.isHidden = true
+        self.cityLabel.text = ""
+        self.countryLabel.text = ""
+        self.weatherConditionLabel.text = "-"
+        self.temperatureLabel.text = "--"
+        self.searchIconImageView.isHidden = true
     }
     
     private func setUpInfoButtonDesign() {
@@ -128,6 +154,7 @@ final class ViewController: UIViewController {
     }
 }
 
+// MARK: CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -135,6 +162,12 @@ extension ViewController: CLLocationManagerDelegate {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         networkWeatherManager.fetchWeatherData(withCoordinateLatitude: latitude, longitude: longitude)
+        
+        DispatchQueue.main.sync {
+            UIView.animate(withDuration: 0.2) {
+                self.locationIconImageView.alpha = 1
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -142,6 +175,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: UIGestureRecognizerDelegate
 extension ViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

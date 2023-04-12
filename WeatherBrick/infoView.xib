@@ -24,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAb-MD-n9S">
-                    <rect key="frame" x="114.66666666666667" y="16" width="40.666666666666671" height="21"/>
+                    <rect key="frame" x="114" y="16" width="42" height="21"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfS-FV-mXx">
-                    <rect key="frame" x="32" y="49.000000000000014" width="206" height="202.33333333333337"/>
+                    <rect key="frame" x="32" y="49.000000000000014" width="206" height="218.33333333333337"/>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">Brick is wet - raining
@@ -42,7 +42,7 @@ Brick is swinging- windy
 Brick is gone - No Internet</string>
                             <attributes>
                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <font key="NSFont" size="15" name=".SFNS-Regular"/>
+                                <font key="NSFont" metaFont="system" size="15"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.74" tighteningFactorForTruncation="0.0"/>
                             </attributes>
                         </fragment>

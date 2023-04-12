@@ -35,19 +35,7 @@ struct WeatherParsedData {
         }
     }
     let weatherConditionString: String
-//    var weatherConditionString: String {
-//        switch conditionCode {
-//        case 200...232: return "Thunderstorm"
-//        case 300...321: return "Drizzle"
-//        case 500...531: return "Rainy"
-//        case 600...622: return "Snowy"
-//        case 701...781: return "Mist"
-//        case 800: return "Sunny"
-//        case 801...804: return "Cloudy"
-//        default: return ""
-//        }
-//    }
-//
+    
     init?(weatherData: WeatherData) {
         city = weatherData.name
         country = weatherData.sys.country

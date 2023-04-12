@@ -16,7 +16,6 @@
 		A3475F1F273305F400BF5E86 /* WeatherBrickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3475F1E273305F400BF5E86 /* WeatherBrickUITests.swift */; };
 		A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */; };
 		A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */; };
-		A3ACF2E727384B9800CEE97C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E627384B9800CEE97C /* Localizable.strings */; };
 		F586B24529E4918F00E37368 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */; };
 		F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58B2ABB29E44E48009E75C0 /* infoView.xib */; };
 		F58B2ABE29E45FC0009E75C0 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B2ABD29E45FC0009E75C0 /* InfoView.swift */; };
@@ -24,6 +23,7 @@
 		F5B2529529E5535500CBE74D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2529429E5535500CBE74D /* Constants.swift */; };
 		F5B2529729E555B600CBE74D /* WeatherParsedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2529629E555B600CBE74D /* WeatherParsedData.swift */; };
 		F5B2529929E555C300CBE74D /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2529829E555C300CBE74D /* WeatherData.swift */; };
+		F5F70AD529E6D73A00739C2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5F70AD729E6D73A00739C2A /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		A3475F20273305F400BF5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		A3ACF2E627384B9800CEE97C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		F58B2ABB29E44E48009E75C0 /* infoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoView.xib; sourceTree = "<group>"; };
 		F58B2ABD29E45FC0009E75C0 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		F5B2529429E5535500CBE74D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F5B2529629E555B600CBE74D /* WeatherParsedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherParsedData.swift; sourceTree = "<group>"; };
 		F5B2529829E555C300CBE74D /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		F5F70AD629E6D73A00739C2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 			children = (
 				A3475F05273305F400BF5E86 /* Assets.xcassets */,
 				A3ACF2DF2738479300CEE97C /* Fonts */,
-				A3ACF2E627384B9800CEE97C /* Localizable.strings */,
+				F5F70AD729E6D73A00739C2A /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 			files = (
 				A3475F09273305F400BF5E86 /* LaunchScreen.storyboard in Resources */,
 				F5B24F8729E2B6F300156AFA /* .gitignore in Resources */,
-				A3ACF2E727384B9800CEE97C /* Localizable.strings in Resources */,
+				F5F70AD529E6D73A00739C2A /* Localizable.strings in Resources */,
 				A3475F06273305F400BF5E86 /* Assets.xcassets in Resources */,
 				F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */,
 				A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */,
@@ -409,6 +409,14 @@
 				A3475F08273305F400BF5E86 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F5F70AD729E6D73A00739C2A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5F70AD629E6D73A00739C2A /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
