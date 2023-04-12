@@ -9,7 +9,6 @@
 import Foundation
 
 struct WeatherData: Codable {
-    
     let main: Main
     let weather: [Weather]
     let sys: Sys

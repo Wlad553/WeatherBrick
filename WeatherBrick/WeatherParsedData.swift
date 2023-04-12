@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct WeatherParsedData {
-    
     let city: String
     let country: String
     
@@ -37,10 +36,11 @@ struct WeatherParsedData {
     let weatherConditionString: String
     
     init?(weatherData: WeatherData) {
+        guard let weatherDataWeather = weatherData.weather.first else { return nil }
         city = weatherData.name
         country = weatherData.sys.country
         temperature = weatherData.main.temp
-        conditionCode = weatherData.weather.first!.id
-        weatherConditionString = weatherData.weather.first!.main
+        conditionCode = weatherDataWeather.id
+        weatherConditionString = weatherDataWeather.main
     }
 }

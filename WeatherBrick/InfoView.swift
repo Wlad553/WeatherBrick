@@ -9,7 +9,6 @@
 import UIKit
 
 final class InfoView: UIView {
-    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var hideButton: UIButton!
     
@@ -28,12 +27,13 @@ final class InfoView: UIView {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
     
     private func setUpButton() {
-        hideButton.layer.borderColor = hideButton.titleColor(for: .normal)!.cgColor
+        guard let titleColor = hideButton.titleColor(for: .normal)?.cgColor else { return }
+        hideButton.layer.borderColor = titleColor
         hideButton.layer.borderWidth = 1
         hideButton.layer.cornerRadius = 15
     }
@@ -43,7 +43,9 @@ final class InfoView: UIView {
         layer.backgroundColor = UIColor(red: 251/255, green: 95/255, blue: 41/255, alpha: 1).cgColor
         layer.shadowOffset = CGSize(width: -1, height: 0)
         layer.shadowOpacity = 0.5
-        layer.shadowPath = CGPath(rect: CGRect(x: 0, y: 5, width: bounds.width - 20, height: bounds.height - 10), transform: nil)
+        layer.shadowPath = CGPath(
+            rect: CGRect(x: 0, y: 5, width: bounds.width - 20, height: bounds.height - 10),
+            transform: nil)
         layer.shadowRadius = 10
         contentView.layer.backgroundColor = UIColor(red: 255/255, green: 153/255, blue: 96/255, alpha: 1).cgColor
         contentView.layer.cornerRadius = 15

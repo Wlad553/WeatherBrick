@@ -9,17 +9,15 @@
 import Foundation
 
 final class NetworkWeatherManager {
-    
     var onCompletion: ((WeatherParsedData) -> Void)?
     var dataFetchingFailed: (() -> Void)?
     
     func fetchWeatherData(withCoordinateLatitude latitude: Double, longitude: Double) {
-        
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         session.configuration.waitsForConnectivity = true
-        let task = session.dataTask(with: url) { data, response, error in
+        let task = session.dataTask(with: url) { data, _, _ in
             guard let data = data,
                   let weatherParsedData = self.parseJSON(withData: data)
             else {
@@ -36,7 +34,7 @@ final class NetworkWeatherManager {
         do {
             let weatherData = try decoder.decode(WeatherData.self, from: data)
             guard let weatherParsedData = WeatherParsedData(weatherData: weatherData) else { return nil }
-                    return weatherParsedData
+            return weatherParsedData
         } catch let error as NSError {
             print(error.localizedDescription)
         }

@@ -7,7 +7,6 @@ import UIKit
 import CoreLocation
 
 final class ViewController: UIViewController {
-    
     @IBOutlet weak var brickImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherConditionLabel: UILabel!
@@ -25,11 +24,11 @@ final class ViewController: UIViewController {
     let gestureRecognizer = UIPanGestureRecognizer()
     
     lazy var locationManager: CLLocationManager = {
-        let lm = CLLocationManager()
-        lm.delegate = self
-        lm.desiredAccuracy = kCLLocationAccuracyKilometer
-        lm.requestWhenInUseAuthorization()
-        return lm
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
+        return locationManager
     }()
     
     override func viewDidLoad() {
@@ -71,7 +70,6 @@ final class ViewController: UIViewController {
     }
     
     @objc func showOrDismissInfoView() {
-        
         if infoView.alpha == 0 {
             UIView.animate(withDuration: 0.15) {
                 self.contentView.alpha = 0.5
@@ -136,8 +134,10 @@ final class ViewController: UIViewController {
     private func setUpInfoButtonDesign() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = infoButton.bounds
-        gradientLayer.colors = [UIColor(red: 255/255, green: 153/255, blue: 96/255, alpha: 1).cgColor,
-                                UIColor(red: 249/255, green: 80/255, blue: 27/255, alpha: 1).cgColor]
+        gradientLayer.colors = [
+            UIColor(red: 255/255, green: 153/255, blue: 96/255, alpha: 1).cgColor,
+            UIColor(red: 249/255, green: 80/255, blue: 27/255, alpha: 1).cgColor
+        ]
         gradientLayer.shouldRasterize = true
         gradientLayer.cornerRadius = 10
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
@@ -147,7 +147,11 @@ final class ViewController: UIViewController {
         infoButton.layer.shadowOffset = CGSize(width: 0, height: 1)
         
         if #available(iOS 15.0, *) {
-            infoButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0)
+            infoButton.configuration?.contentInsets = NSDirectionalEdgeInsets(
+                top: 0,
+                leading: 0,
+                bottom: 20,
+                trailing: 0)
         } else {
             infoButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         }
@@ -156,7 +160,6 @@ final class ViewController: UIViewController {
 
 // MARK: CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         let latitude = location.coordinate.latitude
@@ -177,7 +180,6 @@ extension ViewController: CLLocationManagerDelegate {
 
 // MARK: UIGestureRecognizerDelegate
 extension ViewController: UIGestureRecognizerDelegate {
-    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
