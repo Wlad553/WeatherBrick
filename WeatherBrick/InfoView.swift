@@ -8,9 +8,9 @@
 
 import UIKit
 
-class InfoView: UIView {
+final class InfoView: UIView {
     
-    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var hideButton: UIButton!
     
     required init?(coder: NSCoder) {

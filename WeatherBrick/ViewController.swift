@@ -4,8 +4,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet weak var brickImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -15,14 +16,37 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var infoView: InfoView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var locationIconImageView: UIImageView!
+    
+    var networkWeatherManager = NetworkWeatherManager()
+    
+    let gestureRecognizer = UIPanGestureRecognizer()
+    
+    lazy var locationManager: CLLocationManager = {
+        let lm = CLLocationManager()
+        lm.delegate = self
+        lm.desiredAccuracy = kCLLocationAccuracyKilometer
+        lm.requestWhenInUseAuthorization()
+        return lm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        infoView.alpha = 0
         setUpInfoButtonDesign()
+        gestureRecognizer.addTarget(self, action: #selector(gestureAction(sender:)))
+        gestureRecognizer.delegate = self
+        scrollView.addGestureRecognizer(gestureRecognizer)
         
         infoButton.addTarget(self, action: #selector(showOrDismissInfoView), for: .touchUpInside)
         infoView.hideButton.addTarget(self, action: #selector(showOrDismissInfoView), for: .touchUpInside)
+        
+        networkWeatherManager.onCompletion = { [weak self] weather in
+            guard let self = self else { return }
+            updateInterface(with: weather)
+        }
+        
+        requestLocation()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,6 +75,38 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func gestureAction(sender: UIGestureRecognizer) {
+        if scrollView.contentOffset.y <= -150 && sender.state == .ended {
+            requestLocation()
+        }
+    }
+    
+    private func requestLocation() {
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.locationManager.requestLocation()
+                guard let lastLocation = self.locationManager.location else { return }
+                self.locationManager(self.locationManager, didUpdateLocations: [lastLocation])
+            }
+        }
+    }
+    
+    func updateInterface(with weather: WeatherParsedData) {
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.city
+            self.temperatureLabel.text = weather.temperatureString
+            self.countryLabel.text = weather.country
+            self.weatherConditionLabel.text = weather.weatherConditionString
+            self.brickImageView.image = weather.brickImage
+            
+            if 701...762 ~= weather.conditionCode {
+                self.brickImageView.alpha = 0.4
+            } else {
+                self.brickImageView.alpha = 1
+            }
+        }
+    }
+    
     private func setUpInfoButtonDesign() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = infoButton.bounds
@@ -69,5 +125,26 @@ class ViewController: UIViewController {
         } else {
             infoButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         }
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        networkWeatherManager.fetchWeatherData(withCoordinateLatitude: latitude, longitude: longitude)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+extension ViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
