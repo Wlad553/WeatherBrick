@@ -174,7 +174,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
+        print("LocationManager failed to update location: \(error.localizedDescription)")
     }
 }
 

@@ -17,7 +17,8 @@ final class NetworkWeatherManager {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         session.configuration.waitsForConnectivity = true
-        let task = session.dataTask(with: url) { data, _, _ in
+        let task = session.dataTask(with: url) { [weak self] data, _, _ in
+            guard let self = self else { return }
             guard let data = data,
                   let weatherParsedData = self.parseJSON(withData: data)
             else {
@@ -36,7 +37,7 @@ final class NetworkWeatherManager {
             guard let weatherParsedData = WeatherParsedData(weatherData: weatherData) else { return nil }
             return weatherParsedData
         } catch let error as NSError {
-            print(error.localizedDescription)
+            print("Unable to parse data: \(error.localizedDescription)")
         }
         return nil
     }
