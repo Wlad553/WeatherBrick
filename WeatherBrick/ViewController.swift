@@ -164,7 +164,7 @@ extension ViewController: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
-        networkWeatherManager.fetchWeatherData(self, withCoordinateLatitude: latitude, longitude: longitude)
+        networkWeatherManager.fetchWeatherData(withCoordinateLatitude: latitude, longitude: longitude)
         
         DispatchQueue.main.sync {
             UIView.animate(withDuration: 0.2) {
@@ -174,13 +174,7 @@ extension ViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let alertController = UIAlertController(
-            title:"Unable to locate you",
-            message: "Please, try again later",
-            preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .cancel)
-        alertController.addAction(action)
-        present(alertController, animated: true)
+        print("LocationManager failed to update location: \(error.localizedDescription)")
     }
 }
 
