@@ -6,26 +6,71 @@
 import XCTest
 
 class WeatherBrickUITests: XCTestCase {
+    var app: XCUIApplication!
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        app = XCUIApplication()
+        app.launch()
+    }
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        app = nil
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testViewControllerInitialStateElements() {
+        XCTAssertFalse(app.images["searchIcon"].exists)
+        XCTAssertFalse(app.staticTexts["cityLabel"].exists)
+        XCTAssertFalse(app.staticTexts["countryLabel"].exists)
+        XCTAssertFalse(app.images["brickImage"].exists)
+        
+        XCTAssertTrue(app.staticTexts["weatherConditionLabel"].exists)
+        XCTAssertTrue(app.staticTexts["temperatureLabel"].exists)
+        XCTAssertTrue(app.staticTexts["celsiusLabel"].exists)
+        XCTAssertTrue(app.images["backgroundGradientImage"].exists)
+        XCTAssertTrue(app.buttons["infoButton"].exists)
+        XCTAssertTrue(app.images["locationIcon"].exists)
+    }
+    
+    func testViewControllerElementsAfterLocationRequest() {
+        let expectation = expectation(description: "Interface updated with api data")
+        let result = XCTWaiter.wait(for: [expectation], timeout: 1)
+        
+        if result == XCTWaiter.Result.timedOut {
+            XCTAssertTrue(app.images["searchIcon"].exists)
+            XCTAssertTrue(app.staticTexts["cityLabel"].exists)
+            XCTAssertTrue(app.staticTexts["countryLabel"].exists)
+            XCTAssertTrue(app.images["brickImage"].exists)
+            XCTAssertTrue(app.staticTexts["weatherConditionLabel"].exists)
+            XCTAssertTrue(app.staticTexts["temperatureLabel"].exists)
+            XCTAssertTrue(app.staticTexts["celsiusLabel"].exists)
+            XCTAssertTrue(app.images["backgroundGradientImage"].exists)
+            XCTAssertTrue(app.buttons["infoButton"].exists)
+            
+            XCTAssertFalse(app.images["locationIcon"].exists)
+        } else {
+            XCTFail("Delay interrupted")
+        }
+    }
+    
+    func testInfoView() {
+        func initialState() {
+            XCTAssertFalse(app.buttons["hideButton"].exists)
+            XCTAssertFalse(app.staticTexts["infoBottomLabel"].exists)
+            XCTAssertFalse(app.staticTexts["infoTopLabel"].exists)
+        }
+        
+        initialState()
+        
+        app.buttons["infoButton"].tap()
+        
+        XCTAssertTrue(app.buttons["hideButton"].exists)
+        XCTAssertTrue(app.staticTexts["infoBottomLabel"].exists)
+        XCTAssertTrue(app.staticTexts["infoTopLabel"].exists)
+        
+        app.buttons["hideButton"].tap()
+        initialState()
     }
 }

@@ -19,13 +19,14 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="w28-6c-7lS">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <accessibility key="accessibilityConfiguration" identifier="backgroundGradientImage"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1I-Xy-ZaC">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -38,12 +39,14 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TY0-N7-baL">
                                                         <rect key="frame" x="0.0" y="0.0" width="104" height="99.333333333333329"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="temperatureLabel"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="83"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-L4-Xgr">
                                                         <rect key="frame" x="97" y="0.0" width="104" height="77.666666666666671"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="celsiusLabel"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="65"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -52,6 +55,7 @@
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcs-6b-yq5">
                                                 <rect key="frame" x="0.0" y="89.333333333333371" width="93.666666666666671" height="43"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="weatherConditionLabel"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="36"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -63,6 +67,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_stone_cracks" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-wc-JnJ">
                                                 <rect key="frame" x="0.0" y="-80" width="233" height="455"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="brickImage"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -81,6 +86,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location" translatesAutoresizingMaskIntoConstraints="NO" id="Ka2-Vx-3O7">
                                                 <rect key="frame" x="0.0" y="2.3333333333333712" width="16" height="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="locationIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="S87-KR-rr3"/>
                                                     <constraint firstAttribute="width" constant="16" id="obZ-KQ-jKg"/>
@@ -91,12 +97,14 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berlin," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-0d-K1G">
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="cityLabel"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Germany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUt-7Z-xat">
                                                         <rect key="frame" x="49" y="0.0" width="69" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="countryLabel"/>
                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -105,6 +113,7 @@
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="YSM-hQ-76u">
                                                 <rect key="frame" x="146" y="2.3333333333333712" width="16" height="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="searchIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="H72-34-7Ez"/>
                                                     <constraint firstAttribute="height" constant="16" id="Ke4-76-WGK"/>
@@ -114,6 +123,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBA-DO-D7Y">
                                         <rect key="frame" x="114" y="792" width="165" height="75"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="infoButton"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="1nI-H3-lRX"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="i61-Gj-YCE"/>
