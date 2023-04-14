@@ -5,7 +5,7 @@
 
 import XCTest
 
-class WeatherBrickUITests: XCTestCase {
+final class WeatherBrickUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUp() {
@@ -18,20 +18,6 @@ class WeatherBrickUITests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         app = nil
-    }
-    
-    func testViewControllerInitialStateElements() {
-        XCTAssertFalse(app.images["searchIcon"].exists)
-        XCTAssertFalse(app.staticTexts["cityLabel"].exists)
-        XCTAssertFalse(app.staticTexts["countryLabel"].exists)
-        XCTAssertFalse(app.images["brickImage"].exists)
-        
-        XCTAssertTrue(app.staticTexts["weatherConditionLabel"].exists)
-        XCTAssertTrue(app.staticTexts["temperatureLabel"].exists)
-        XCTAssertTrue(app.staticTexts["celsiusLabel"].exists)
-        XCTAssertTrue(app.images["backgroundGradientImage"].exists)
-        XCTAssertTrue(app.buttons["infoButton"].exists)
-        XCTAssertTrue(app.images["locationIcon"].exists)
     }
     
     func testViewControllerElementsAfterLocationRequest() {

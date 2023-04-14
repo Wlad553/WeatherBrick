@@ -86,7 +86,7 @@ final class ViewController: UIViewController {
     }
     
     @objc func gestureAction(sender: UIGestureRecognizer) {
-        if scrollView.contentOffset.y <= -150 && sender.state == .ended {
+        if scrollView.contentOffset.y <= -130 && sender.state == .ended {
             requestLocation()
         }
     }

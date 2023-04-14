@@ -9,7 +9,7 @@
 import XCTest
 @testable import WeatherBrick
 
-final class WeatherBrickSlowTests: XCTestCase {
+final class WeatherBrickApiCallTests: XCTestCase {
     var urlSession: URLSession!
     
     override func setUp() {

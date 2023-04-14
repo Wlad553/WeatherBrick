@@ -47,6 +47,7 @@ final class NetworkWeatherManager {
             message: "Please, try again later",
             preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel)
+            action.accessibilityIdentifier = "alertOKAction"
         alertController.addAction(action)
             target.present(alertController, animated: true)
         }
