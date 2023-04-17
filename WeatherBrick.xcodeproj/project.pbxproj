@@ -18,6 +18,7 @@
 		A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */; };
 		F532190329E94C3200D4AE8F /* WeatherBrickApiCallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532190229E94C3200D4AE8F /* WeatherBrickApiCallTests.swift */; };
 		F53B901429E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B901329E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift */; };
+		F584CCE229ED1D16004A095F /* stubbedWeatherJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */; };
 		F586B24529E4918F00E37368 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */; };
 		F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58B2ABB29E44E48009E75C0 /* infoView.xib */; };
 		F58B2ABE29E45FC0009E75C0 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B2ABD29E45FC0009E75C0 /* InfoView.swift */; };
@@ -72,6 +73,7 @@
 		F53B900A29E9A22C0075E280 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		F53B901129E9A2F20075E280 /* WeatherBrickNoInternetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherBrickNoInternetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53B901329E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBrickNoInternetUITests.swift; sourceTree = "<group>"; };
+		F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stubbedWeatherJSONData.json; sourceTree = "<group>"; };
 		F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		F58B2ABB29E44E48009E75C0 /* infoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoView.xib; sourceTree = "<group>"; };
 		F58B2ABD29E45FC0009E75C0 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		A3475F12273305F400BF5E86 /* WeatherBrickTests */ = {
 			isa = PBXGroup;
 			children = (
+				F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */,
 				F532190229E94C3200D4AE8F /* WeatherBrickApiCallTests.swift */,
 				A3475F13273305F400BF5E86 /* WeatherBrickTests.swift */,
 				A3475F15273305F400BF5E86 /* Info.plist */,
@@ -364,6 +367,7 @@
 				F5F70AD529E6D73A00739C2A /* Localizable.strings in Resources */,
 				A3475F06273305F400BF5E86 /* Assets.xcassets in Resources */,
 				F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */,
+				F584CCE229ED1D16004A095F /* stubbedWeatherJSONData.json in Resources */,
 				A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */,
 				A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */,
 				A3475F04273305F200BF5E86 /* Main.storyboard in Resources */,
