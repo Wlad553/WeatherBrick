@@ -54,7 +54,7 @@ final class WeatherBrickApiCallTests: XCTestCase {
             self.expectation.fulfill()
         }
         
-        networkManager.fetchWeatherData(UIViewController(), withCoordinateLatitude: 50, longitude: 0, urlSession: urlSession)
+        networkManager.fetchWeatherData(withCoordinateLatitude: 50, longitude: 0, urlSession: urlSession)
         wait(for: [expectation], timeout: 2)
     }
     
@@ -75,7 +75,7 @@ final class WeatherBrickApiCallTests: XCTestCase {
             self.expectation.fulfill()
         }
         
-        networkManager.fetchWeatherData(UIViewController(), withCoordinateLatitude: 50, longitude: 0, urlSession: urlSession)
+        networkManager.fetchWeatherData(withCoordinateLatitude: 50, longitude: 0, urlSession: urlSession)
         
         wait(for: [expectation], timeout: 1.0)
     }

@@ -19,7 +19,7 @@ final class NetworkWeatherManager {
     var onCompletion: ((WeatherParsedData) -> Void)?
     var dataFetchingFailed: ((Error) -> Void)?
     
-    func fetchWeatherData(_ target: UIViewController, withCoordinateLatitude latitude: Double, longitude: Double, urlSession: URLSession = URLSession(configuration: .default)) {
+    func fetchWeatherData(_ target: UIViewController? = nil, withCoordinateLatitude latitude: Double, longitude: Double, urlSession: URLSession = URLSession(configuration: .default)) {
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric"
         guard let url = URL(string: urlString) else { return }
         urlSession.configuration.waitsForConnectivity = true
@@ -29,7 +29,7 @@ final class NetworkWeatherManager {
                 if let error = error {
                     throw error
                 }
-                guard let response = response else {
+                guard let _ = response else {
                     throw WeatherAPIResponseError.network
                 }
                 guard let data = data,
@@ -39,7 +39,9 @@ final class NetworkWeatherManager {
                 }
                 self.onCompletion?(weatherParsedData)
             } catch {
-                presentAlertController(toViewController: target)
+                if let target = target {
+                    presentAlertController(toViewController: target)
+                }
                 dataFetchingFailed?(error)
             }
         }.resume()
