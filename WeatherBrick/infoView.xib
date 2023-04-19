@@ -24,13 +24,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAb-MD-n9S">
-                    <rect key="frame" x="114" y="16" width="42" height="21"/>
+                    <rect key="frame" x="114.66666666666667" y="16" width="40.666666666666671" height="21"/>
+                    <accessibility key="accessibilityConfiguration" identifier="infoTopLabel"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfS-FV-mXx">
                     <rect key="frame" x="32" y="49.000000000000014" width="206" height="218.33333333333337"/>
+                    <accessibility key="accessibilityConfiguration" identifier="infoBottomLabel"/>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">Brick is wet - raining
@@ -38,7 +40,7 @@ Brick is dry - sunny
 Brick is hard to see - fog
 Brick with cracks - very hot
 Brick with snow - snow
-Brick is swinging- windy
+Brick is swinging - windy
 Brick is gone - No Internet</string>
                             <attributes>
                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -52,6 +54,7 @@ Brick is gone - No Internet</string>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMk-0a-o8u">
                     <rect key="frame" x="75" y="299" width="120" height="35"/>
+                    <accessibility key="accessibilityConfiguration" identifier="hideButton"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="52o-Fq-r8z"/>
                         <constraint firstAttribute="height" constant="35" id="sgw-6W-2DH"/>
