@@ -48,7 +48,7 @@ final class ViewController: UIViewController {
             updateInterface(with: weather)
         }
         
-        networkWeatherManager.dataFetchingFailed = { [weak self] in
+        networkWeatherManager.dataFetchingFailed = { [weak self] _ in
             guard let self = self else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75 ) {
                 UIView.animate(withDuration: 0.15, delay: 1) {
@@ -86,7 +86,7 @@ final class ViewController: UIViewController {
     }
     
     @objc func gestureAction(sender: UIGestureRecognizer) {
-        if scrollView.contentOffset.y <= -150 && sender.state == .ended {
+        if scrollView.contentOffset.y <= -130 && sender.state == .ended {
             requestLocation()
         }
     }

@@ -16,6 +16,10 @@
 		A3475F1F273305F400BF5E86 /* WeatherBrickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3475F1E273305F400BF5E86 /* WeatherBrickUITests.swift */; };
 		A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */; };
 		A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */; };
+		F532190329E94C3200D4AE8F /* WeatherBrickApiCallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F532190229E94C3200D4AE8F /* WeatherBrickApiCallTests.swift */; };
+		F53B901429E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B901329E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift */; };
+		F584CCE229ED1D16004A095F /* stubbedWeatherJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */; };
+		F584CCE429ED35F5004A095F /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584CCE329ED35F5004A095F /* MockURLProtocol.swift */; };
 		F586B24529E4918F00E37368 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */; };
 		F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F58B2ABB29E44E48009E75C0 /* infoView.xib */; };
 		F58B2ABE29E45FC0009E75C0 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58B2ABD29E45FC0009E75C0 /* InfoView.swift */; };
@@ -41,6 +45,13 @@
 			remoteGlobalIDString = A3475EFA273305F200BF5E86;
 			remoteInfo = WeatherBrick;
 		};
+		F53B901729E9A2F20075E280 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3475EF3273305F200BF5E86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3475EFA273305F200BF5E86;
+			remoteInfo = WeatherBrick;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +70,12 @@
 		A3475F20273305F400BF5E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3ACF2E0273847B000CEE97C /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		A3ACF2E2273847B800CEE97C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		F532190229E94C3200D4AE8F /* WeatherBrickApiCallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBrickApiCallTests.swift; sourceTree = "<group>"; };
+		F53B900A29E9A22C0075E280 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		F53B901129E9A2F20075E280 /* WeatherBrickNoInternetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherBrickNoInternetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53B901329E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBrickNoInternetUITests.swift; sourceTree = "<group>"; };
+		F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stubbedWeatherJSONData.json; sourceTree = "<group>"; };
+		F584CCE329ED35F5004A095F /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		F586B24429E4918F00E37368 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		F58B2ABB29E44E48009E75C0 /* infoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoView.xib; sourceTree = "<group>"; };
 		F58B2ABD29E45FC0009E75C0 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -91,16 +108,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F53B900E29E9A2F20075E280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A3475EF2273305F200BF5E86 = {
 			isa = PBXGroup;
 			children = (
+				F53B900A29E9A22C0075E280 /* TestPlan.xctestplan */,
 				F5B24F8629E2B6F300156AFA /* .gitignore */,
 				A3475EFD273305F200BF5E86 /* WeatherBrick */,
 				A3475F12273305F400BF5E86 /* WeatherBrickTests */,
 				A3475F1D273305F400BF5E86 /* WeatherBrickUITests */,
+				F53B901229E9A2F20075E280 /* WeatherBrickNoInternetUITests */,
 				A3475EFC273305F200BF5E86 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +137,7 @@
 				A3475EFB273305F200BF5E86 /* WeatherBrick.app */,
 				A3475F0F273305F400BF5E86 /* WeatherBrickTests.xctest */,
 				A3475F1A273305F400BF5E86 /* WeatherBrickUITests.xctest */,
+				F53B901129E9A2F20075E280 /* WeatherBrickNoInternetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,7 +158,10 @@
 		A3475F12273305F400BF5E86 /* WeatherBrickTests */ = {
 			isa = PBXGroup;
 			children = (
+				F584CCE129ED1D16004A095F /* stubbedWeatherJSONData.json */,
+				F532190229E94C3200D4AE8F /* WeatherBrickApiCallTests.swift */,
 				A3475F13273305F400BF5E86 /* WeatherBrickTests.swift */,
+				F584CCE329ED35F5004A095F /* MockURLProtocol.swift */,
 				A3475F15273305F400BF5E86 /* Info.plist */,
 			);
 			path = WeatherBrickTests;
@@ -175,6 +205,14 @@
 				F5F70AD729E6D73A00739C2A /* Localizable.strings */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F53B901229E9A2F20075E280 /* WeatherBrickNoInternetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F53B901329E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift */,
+			);
+			path = WeatherBrickNoInternetUITests;
 			sourceTree = "<group>";
 		};
 		F586B24229E4902D00E37368 /* View */ = {
@@ -252,6 +290,24 @@
 			productReference = A3475F1A273305F400BF5E86 /* WeatherBrickUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F53B901029E9A2F20075E280 /* WeatherBrickNoInternetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F53B901929E9A2F20075E280 /* Build configuration list for PBXNativeTarget "WeatherBrickNoInternetUITests" */;
+			buildPhases = (
+				F53B900D29E9A2F20075E280 /* Sources */,
+				F53B900E29E9A2F20075E280 /* Frameworks */,
+				F53B900F29E9A2F20075E280 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F53B901829E9A2F20075E280 /* PBXTargetDependency */,
+			);
+			name = WeatherBrickNoInternetUITests;
+			productName = WeatherBrickNoInternetUITests;
+			productReference = F53B901129E9A2F20075E280 /* WeatherBrickNoInternetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -259,7 +315,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = VAndrJ;
 				TargetAttributes = {
@@ -275,6 +331,10 @@
 					A3475F19273305F400BF5E86 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = "";
+						TestTargetID = A3475EFA273305F200BF5E86;
+					};
+					F53B901029E9A2F20075E280 = {
+						CreatedOnToolsVersion = 14.3;
 						TestTargetID = A3475EFA273305F200BF5E86;
 					};
 				};
@@ -295,6 +355,7 @@
 				A3475EFA273305F200BF5E86 /* WeatherBrick */,
 				A3475F0E273305F400BF5E86 /* WeatherBrickTests */,
 				A3475F19273305F400BF5E86 /* WeatherBrickUITests */,
+				F53B901029E9A2F20075E280 /* WeatherBrickNoInternetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,6 +370,7 @@
 				F5F70AD529E6D73A00739C2A /* Localizable.strings in Resources */,
 				A3475F06273305F400BF5E86 /* Assets.xcassets in Resources */,
 				F58B2ABC29E44E48009E75C0 /* infoView.xib in Resources */,
+				F584CCE229ED1D16004A095F /* stubbedWeatherJSONData.json in Resources */,
 				A3ACF2E3273847B800CEE97C /* SF-Pro-Display-Semibold.otf in Resources */,
 				A3ACF2E1273847B000CEE97C /* SF-Pro-Display-Light.otf in Resources */,
 				A3475F04273305F200BF5E86 /* Main.storyboard in Resources */,
@@ -323,6 +385,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A3475F18273305F400BF5E86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F53B900F29E9A2F20075E280 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,7 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F584CCE429ED35F5004A095F /* MockURLProtocol.swift in Sources */,
 				A3475F14273305F400BF5E86 /* WeatherBrickTests.swift in Sources */,
+				F532190329E94C3200D4AE8F /* WeatherBrickApiCallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +451,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3475F1F273305F400BF5E86 /* WeatherBrickUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F53B900D29E9A2F20075E280 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F53B901429E9A2F20075E280 /* WeatherBrickNoInternetUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +474,11 @@
 			isa = PBXTargetDependency;
 			target = A3475EFA273305F200BF5E86 /* WeatherBrick */;
 			targetProxy = A3475F1B273305F400BF5E86 /* PBXContainerItemProxy */;
+		};
+		F53B901829E9A2F20075E280 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3475EFA273305F200BF5E86 /* WeatherBrick */;
+			targetProxy = F53B901729E9A2F20075E280 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -656,6 +740,47 @@
 			};
 			name = Release;
 		};
+		F53B901A29E9A2F20075E280 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VQ3NGD79KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = vladyslavpetrenko.com.WeatherBrickNoInternetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WeatherBrick;
+			};
+			name = Debug;
+		};
+		F53B901B29E9A2F20075E280 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VQ3NGD79KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = vladyslavpetrenko.com.WeatherBrickNoInternetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WeatherBrick;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -691,6 +816,15 @@
 			buildConfigurations = (
 				A3475F2A273305F400BF5E86 /* Debug */,
 				A3475F2B273305F400BF5E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F53B901929E9A2F20075E280 /* Build configuration list for PBXNativeTarget "WeatherBrickNoInternetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F53B901A29E9A2F20075E280 /* Debug */,
+				F53B901B29E9A2F20075E280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
