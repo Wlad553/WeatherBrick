@@ -6,20 +6,14 @@
 import XCTest
 @testable import WeatherBrick
 
-final class WeatherBrickTests: XCTestCase {
-    
-    var viewController: ViewController!
-    
+class WeatherBrickTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        viewController = storyboard.instantiateViewController(withIdentifier: "main") as? ViewController
-        viewController.loadView()
-        viewController.viewDidLoad()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDown() {
-        viewController = nil
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     

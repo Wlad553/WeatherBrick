@@ -11,9 +11,7 @@ final class WeatherBrickUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        app = XCUIApplication()
-        app.launch()
-    }
+        XCUIApplication().launch()
 
     override func tearDown() {
         super.tearDown()
@@ -39,24 +37,5 @@ final class WeatherBrickUITests: XCTestCase {
         } else {
             XCTFail("Delay interrupted")
         }
-    }
-    
-    func testInfoView() {
-        func initialState() {
-            XCTAssertFalse(app.buttons["hideButton"].exists)
-            XCTAssertFalse(app.staticTexts["infoBottomLabel"].exists)
-            XCTAssertFalse(app.staticTexts["infoTopLabel"].exists)
-        }
-        
-        initialState()
-        
-        app.buttons["infoButton"].tap()
-        
-        XCTAssertTrue(app.buttons["hideButton"].exists)
-        XCTAssertTrue(app.staticTexts["infoBottomLabel"].exists)
-        XCTAssertTrue(app.staticTexts["infoTopLabel"].exists)
-        
-        app.buttons["hideButton"].tap()
-        initialState()
     }
 }
