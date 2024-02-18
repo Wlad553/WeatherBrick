@@ -1,0 +1,41 @@
+{
+  "configurations" : [
+    {
+      "id" : "5FABB41F-146B-41B4-A018-93CE97AE8024",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "locationScenario" : {
+      "identifier" : "London, England",
+      "referenceType" : "built-in"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:WeatherBrick.xcodeproj",
+        "identifier" : "A3475F0E273305F400BF5E86",
+        "name" : "WeatherBrickTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:WeatherBrick.xcodeproj",
+        "identifier" : "A3475F19273305F400BF5E86",
+        "name" : "WeatherBrickUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:WeatherBrick.xcodeproj",
+        "identifier" : "F53B901029E9A2F20075E280",
+        "name" : "WeatherBrickNoInternetUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,27 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Light.otf">
+            <string>SFProDisplay-Light</string>
+        </array>
+        <array key="SF-Pro-Display-Semibold.otf">
+            <string>SFProDisplay-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherBrick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_background" translatesAutoresizingMaskIntoConstraints="NO" id="w28-6c-7lS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <accessibility key="accessibilityConfiguration" identifier="backgroundGradientImage"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1I-Xy-ZaC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="5iE-pG-Zcn">
+                                        <rect key="frame" x="16" y="434" width="201" height="132.33333333333337"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="HKD-Ie-Dik">
+                                                <rect key="frame" x="0.0" y="0.0" width="201" height="99.333333333333329"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TY0-N7-baL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="99.333333333333329"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="temperatureLabel"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="83"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-L4-Xgr">
+                                                        <rect key="frame" x="97" y="0.0" width="104" height="77.666666666666671"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="celsiusLabel"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="65"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcs-6b-yq5">
+                                                <rect key="frame" x="0.0" y="89.333333333333371" width="93.666666666666671" height="43"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="weatherConditionLabel"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-ue-T3P">
+                                        <rect key="frame" x="80" y="0.0" width="233" height="434"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_stone_cracks" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-wc-JnJ">
+                                                <rect key="frame" x="0.0" y="-80" width="233" height="455"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="brickImage"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xDk-wc-JnJ" firstAttribute="leading" secondItem="c66-ue-T3P" secondAttribute="leading" id="Fe7-41-pre"/>
+                                            <constraint firstItem="xDk-wc-JnJ" firstAttribute="top" secondItem="c66-ue-T3P" secondAttribute="top" constant="-80" id="cWy-uC-IbG"/>
+                                            <constraint firstAttribute="bottom" secondItem="xDk-wc-JnJ" secondAttribute="bottom" id="jPr-hf-LSo"/>
+                                            <constraint firstItem="xDk-wc-JnJ" firstAttribute="centerX" secondItem="c66-ue-T3P" secondAttribute="centerX" id="l0c-Ux-gSu"/>
+                                            <constraint firstAttribute="trailing" secondItem="xDk-wc-JnJ" secondAttribute="trailing" id="x3t-Gk-K94"/>
+                                            <constraint firstAttribute="width" secondItem="c66-ue-T3P" secondAttribute="height" multiplier="233:434" id="yYL-op-Q7Q"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="6ku-9z-8gj"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="g5O-co-svq"/>
+                                    </scrollView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OcG-yN-tak">
+                                        <rect key="frame" x="115.66666666666669" y="755.66666666666663" width="162" height="20.333333333333371"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_location" translatesAutoresizingMaskIntoConstraints="NO" id="Ka2-Vx-3O7">
+                                                <rect key="frame" x="0.0" y="2.3333333333333712" width="16" height="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="locationIcon"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="S87-KR-rr3"/>
+                                                    <constraint firstAttribute="width" constant="16" id="obZ-KQ-jKg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="0wP-aZ-77Q">
+                                                <rect key="frame" x="21.999999999999986" y="0.0" width="118.00000000000001" height="20.333333333333332"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berlin," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-0d-K1G">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="cityLabel"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Germany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUt-7Z-xat">
+                                                        <rect key="frame" x="49" y="0.0" width="69" height="20.333333333333332"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="countryLabel"/>
+                                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search" translatesAutoresizingMaskIntoConstraints="NO" id="YSM-hQ-76u">
+                                                <rect key="frame" x="146" y="2.3333333333333712" width="16" height="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="searchIcon"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="H72-34-7Ez"/>
+                                                    <constraint firstAttribute="height" constant="16" id="Ke4-76-WGK"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBA-DO-D7Y">
+                                        <rect key="frame" x="114" y="792" width="165" height="75"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="infoButton"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="1nI-H3-lRX"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="i61-Gj-YCE"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="INFO">
+                                                    <attributes>
+                                                        <font key="NSFont" size="18" name="SFProDisplay-Semibold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OcG-yN-tak" firstAttribute="centerX" secondItem="I1I-Xy-ZaC" secondAttribute="centerX" id="725-W6-FiA"/>
+                                    <constraint firstItem="5iE-pG-Zcn" firstAttribute="leading" secondItem="I1I-Xy-ZaC" secondAttribute="leading" constant="16" id="HBg-Tz-sEj"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="c66-ue-T3P" secondAttribute="trailing" constant="80" id="MvU-AZ-OHZ"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="c66-ue-T3P" secondAttribute="bottom" constant="260" id="QMk-Jh-Pco"/>
+                                    <constraint firstItem="c66-ue-T3P" firstAttribute="centerX" secondItem="I1I-Xy-ZaC" secondAttribute="centerX" id="WR8-Oe-QcE"/>
+                                    <constraint firstItem="uBA-DO-D7Y" firstAttribute="bottom" secondItem="I1I-Xy-ZaC" secondAttribute="bottom" constant="15" id="bzG-xd-aWJ"/>
+                                    <constraint firstItem="uBA-DO-D7Y" firstAttribute="top" secondItem="OcG-yN-tak" secondAttribute="bottom" constant="16" id="fkf-aK-sXQ"/>
+                                    <constraint firstItem="uBA-DO-D7Y" firstAttribute="centerX" secondItem="I1I-Xy-ZaC" secondAttribute="centerX" id="hA0-jp-dIU"/>
+                                    <constraint firstItem="5iE-pG-Zcn" firstAttribute="top" secondItem="c66-ue-T3P" secondAttribute="bottom" id="ibg-b2-MCr"/>
+                                    <constraint firstItem="c66-ue-T3P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I1I-Xy-ZaC" secondAttribute="leading" constant="80" id="ke6-BN-lT8"/>
+                                    <constraint firstItem="c66-ue-T3P" firstAttribute="top" secondItem="I1I-Xy-ZaC" secondAttribute="top" id="wug-wg-uZw"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcE-7B-Oii" customClass="InfoView" customModule="WeatherBrick" customModuleProvider="target">
+                                <rect key="frame" x="61.666666666666657" y="251" width="270" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="GzD-bb-DUa"/>
+                                    <constraint firstAttribute="height" constant="350" id="IgS-WO-tZ5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="I1I-Xy-ZaC" secondAttribute="bottom" id="41c-5l-JYD"/>
+                            <constraint firstAttribute="bottom" secondItem="w28-6c-7lS" secondAttribute="bottom" id="4ho-k1-X3E"/>
+                            <constraint firstItem="TcE-7B-Oii" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Dw-S3-dTN"/>
+                            <constraint firstItem="w28-6c-7lS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ISV-aj-cM9"/>
+                            <constraint firstItem="w28-6c-7lS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KoW-HO-eYb"/>
+                            <constraint firstAttribute="trailing" secondItem="w28-6c-7lS" secondAttribute="trailing" id="aQh-AH-y5a"/>
+                            <constraint firstItem="I1I-Xy-ZaC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oGw-ZD-CdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="I1I-Xy-ZaC" secondAttribute="trailing" id="oXX-yr-LwV"/>
+                            <constraint firstItem="TcE-7B-Oii" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sDX-wR-mwB"/>
+                            <constraint firstItem="I1I-Xy-ZaC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="umE-Tu-ch5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brickImageView" destination="xDk-wc-JnJ" id="FHQ-B4-dgq"/>
+                        <outlet property="cityLabel" destination="GLW-0d-K1G" id="G0s-eC-I7i"/>
+                        <outlet property="contentView" destination="I1I-Xy-ZaC" id="swa-Pl-oDS"/>
+                        <outlet property="countryLabel" destination="eUt-7Z-xat" id="1gT-GL-g7C"/>
+                        <outlet property="infoButton" destination="uBA-DO-D7Y" id="WPt-11-Rgd"/>
+                        <outlet property="infoView" destination="TcE-7B-Oii" id="mwA-nq-yAm"/>
+                        <outlet property="locationIconImageView" destination="Ka2-Vx-3O7" id="Fge-JN-ljr"/>
+                        <outlet property="scrollView" destination="c66-ue-T3P" id="MtY-tq-StA"/>
+                        <outlet property="searchIconImageView" destination="YSM-hQ-76u" id="dh7-X3-xrn"/>
+                        <outlet property="temperatureLabel" destination="TY0-N7-baL" id="yu4-Md-1wL"/>
+                        <outlet property="weatherConditionLabel" destination="Xcs-6b-yq5" id="ZY6-Hl-SeX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="-2"/>
+            <point key="canvasLocation" x="125.95419847328243" y="-3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_location" width="16" height="16"/>
+        <image name="icon_search" width="16" height="16"/>
+        <image name="image_background" width="375" height="811"/>
+        <image name="image_stone_cracks" width="224" height="455"/>
+    </resources>
 </document>
